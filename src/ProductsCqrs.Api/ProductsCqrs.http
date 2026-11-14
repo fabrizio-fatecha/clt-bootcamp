@@ -1,0 +1,67 @@
+@baseUrl = http://localhost:5280
+@productId = 1
+
+GET {{baseUrl}}/api/products
+
+###
+
+GET {{baseUrl}}/api/products?search=logitech&page=1&pageSize=5
+
+###
+
+GET {{baseUrl}}/api/products/{{productId}}
+
+###
+
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Teclado Keychron K8 Pro",
+  "description": "Teclado mecanico inalambrico 75%",
+  "price": 119.90,
+  "stock": 25
+}
+
+###
+
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "name": "notebook dell latitude 5450",
+  "description": "Nombre repetido sin distinguir mayusculas",
+  "price": 100,
+  "stock": 1
+}
+
+###
+
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "name": "",
+  "price": -5,
+  "stock": -1
+}
+
+###
+
+PUT {{baseUrl}}/api/products/{{productId}}
+Content-Type: application/json
+
+{
+  "name": "Notebook Lenovo ThinkPad T14 Gen 5",
+  "description": "Intel Core Ultra 7, 32 GB RAM, SSD 1 TB, pantalla 14 pulgadas 2.2K",
+  "price": 1799.00,
+  "stock": 10
+}
+
+###
+
+DELETE {{baseUrl}}/api/products/{{productId}}
+
+###
+
+GET {{baseUrl}}/api/products/99999

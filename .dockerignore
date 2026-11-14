@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+.vs/
+.vscode/
+.idea/
+.git/
+.env
+.DS_Store
+db/
+README.md
+docker-compose.yaml
+nginx.conf
+*.pem

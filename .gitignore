@@ -1,0 +1,11 @@
+.env
+.DS_Store
+[Bb]in/
+[Oo]bj/
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.log
+*.pem

@@ -1,0 +1,51 @@
+x-postgres-credentials: &postgres-credentials
+  POSTGRES_USER: ${POSTGRES_USER:?Falta POSTGRES_USER en el archivo .env}
+  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Falta POSTGRES_PASSWORD en el archivo .env}
+  POSTGRES_DB: ${POSTGRES_DB:?Falta POSTGRES_DB en el archivo .env}
+
+services:
+  db:
+    image: postgres:17
+    container_name: bootcamp-db
+    restart: unless-stopped
+    environment:
+      <<: *postgres-credentials
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  api:
+    build: .
+    image: products-cqrs-api:latest
+    container_name: bootcamp-api
+    restart: unless-stopped
+    environment:
+      <<: *postgres-credentials
+      POSTGRES_HOST: db
+      RATE_LIMIT_READS_PER_DAY: ${RATE_LIMIT_READS_PER_DAY:?Falta RATE_LIMIT_READS_PER_DAY en el archivo .env}
+      RATE_LIMIT_WRITES_PER_DAY: ${RATE_LIMIT_WRITES_PER_DAY:?Falta RATE_LIMIT_WRITES_PER_DAY en el archivo .env}
+      ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  bootcamp-nginx:
+    image: nginx:stable-alpine
+    container_name: bootcamp-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api
+
+volumes:
+  pgdata:

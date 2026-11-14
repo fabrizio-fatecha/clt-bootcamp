@@ -1,0 +1,9 @@
+dotnet tool install -g dotnet-aspnet-codegenerator
+
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 10.0.2
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 10.0.14
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 10.0.14
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --version 10.0.0
+dotnet add package Scalar.AspNetCore
+
+dotnet aspnet-codegenerator controller -name ProductsController -async -api -m WebApplication1.Models.Product -dc WebApplication1.Data.AppDbContext -outDir Controllers --databaseProvider postgres

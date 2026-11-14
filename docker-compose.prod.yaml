@@ -1,0 +1,18 @@
+services:
+  db:
+    ports: !reset []
+    mem_limit: 384m
+
+  api:
+    mem_limit: 256m
+
+  bootcamp-nginx:
+    ports: !reset []
+    mem_limit: 32m
+    networks:
+      - default
+      - core_edge
+
+networks:
+  core_edge:
+    external: true
