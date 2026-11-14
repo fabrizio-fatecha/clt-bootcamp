@@ -18,7 +18,7 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 builder.Services.AddOpenApi(options => options.AddDocumentTransformer((document, _, _) =>
 {
     document.Info.Title = "API de Productos";
-    document.Info.Description = "Catálogo de productos construido con Clean Architecture y CQRS.";
+    document.Info.Description = "Catálogo de productos construido con Clean Architecture y CQRS. Código fuente: https://github.com/fabrizio-fatecha/clt-bootcamp";
     return Task.CompletedTask;
 }));
 builder.Services.AddProblemDetails();
