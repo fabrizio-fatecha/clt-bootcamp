@@ -11,8 +11,6 @@ Spanish :
 
     Cada IP puede hacer 50 lecturas y 1 escritura (crear, editar o borrar) por día. Los números se cambian en el .env.
 
-    Demo funcional : https://products.fatecha.com.py
-
 English :
 
     Products CQRS: A .NET 10 product API built using Clean Architecture and CQRS, with PostgreSQL and Nginx—all containerized via Docker.
@@ -24,7 +22,7 @@ English :
 
     Each IP address is limited to 50 read operations and 1 write operation (create, edit, or delete) per day. These limits can be adjusted in the `.env` file.
 
-    Functional demo: https://products.fatecha.com.py
+<img src="images/demo.png" alt="Demo" width="70" align="middle"> Demo funcional / Functional demo : https://products.fatecha.com.py
 
 ## Capas / Layers
 
@@ -65,5 +63,3 @@ Ex: ProductEndpoints (Minimal API), error handling and per-IP limits.
 
 Rule: dependencies point inward. Domain knows nothing about the other layers.
 </pre>
-
-<img src="images/demo.png" alt="Demo" width="70" align="middle"> Demo funcional / Functional demo : https://products.fatecha.com.py
