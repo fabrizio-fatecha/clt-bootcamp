@@ -65,3 +65,5 @@ Ex: ProductEndpoints (Minimal API), error handling and per-IP limits.
 
 Rule: dependencies point inward. Domain knows nothing about the other layers.
 </pre>
+
+<img src="images/demo.png" alt="Demo" width="70" align="middle"> Demo funcional / Functional demo : https://products.fatecha.com.py
