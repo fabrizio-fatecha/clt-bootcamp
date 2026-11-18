@@ -32,32 +32,32 @@ English :
 
 Spanish :
 
-**Domain** — las reglas del negocio, no depende de nadie.\
-Ej: `Product` (con sus validaciones) e `IProductRepository`.
+Domain — las reglas del negocio, no depende de nadie.\
+Ej: Product (con sus validaciones) e IProductRepository.
 
-**Application** — los casos de uso: orquesta el dominio (los comandos escriben, las consultas leen).\
-Ej: `CreateProductCommand` con su handler y su validator, y `GetProductQuery`.
+Application — los casos de uso: orquesta el dominio (los comandos escriben, las consultas leen).\
+Ej: CreateProductCommand con su handler y su validator, y GetProductQuery.
 
-**Infrastructure** — implementa las interfaces y habla con el exterior.\
-Ej: `ProductRepository` y `ProductReadStore` con EF Core y PostgreSQL.
+Infrastructure — implementa las interfaces y habla con el exterior.\
+Ej: ProductRepository y ProductReadStore con EF Core y PostgreSQL.
 
-**Presentation / API** — la puerta de entrada: recibe y responde.\
-Ej: `ProductEndpoints` (Minimal API), manejo de errores y límite por IP.
+Presentation / API — la puerta de entrada: recibe y responde.\
+Ej: ProductEndpoints (Minimal API), manejo de errores y límite por IP.
 
 Regla: las dependencias apuntan hacia adentro. Domain no conoce a nadie.
 
 English :
 
-**Domain** — the business rules, depends on nothing.\
-Ex: `Product` (with its validations) and `IProductRepository`.
+Domain — the business rules, depends on nothing.\
+Ex: Product (with its validations) and IProductRepository.
 
-**Application** — the use cases: orchestrates the domain (commands write, queries read).\
-Ex: `CreateProductCommand` with its handler and validator, and `GetProductQuery`.
+Application — the use cases: orchestrates the domain (commands write, queries read).\
+Ex: CreateProductCommand with its handler and validator, and GetProductQuery.
 
-**Infrastructure** — implements the interfaces and talks to the outside world.\
-Ex: `ProductRepository` and `ProductReadStore` using EF Core and PostgreSQL.
+Infrastructure — implements the interfaces and talks to the outside world.\
+Ex: ProductRepository and ProductReadStore using EF Core and PostgreSQL.
 
-**Presentation / API** — the entry point: receives requests and responds.\
-Ex: `ProductEndpoints` (Minimal API), error handling and per-IP limits.
+Presentation / API — the entry point: receives requests and responds.\
+Ex: ProductEndpoints (Minimal API), error handling and per-IP limits.
 
 Rule: dependencies point inward. Domain knows nothing about the other layers.
